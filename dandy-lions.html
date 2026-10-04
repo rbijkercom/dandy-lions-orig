@@ -1532,7 +1532,7 @@ a:hover {
   <div role="button" tabindex="{{ heroTab }}" aria-label="Expand Consulting" sc-camel-on-pointer-down="{{ conDown }}" sc-camel-on-pointer-up="{{ conUp }}" sc-camel-on-key-down="{{ conKey }}" style="position:absolute; right:0; bottom:0; left:calc(50vw*(1 - var(--vert))); top:calc(50vh*var(--vert)); width:calc(50vw*(1 - var(--vert)) + 100vw*var(--vert)); height:calc(100vh*(1 - var(--vert)) + 50vh*var(--vert)); z-index:6; cursor:pointer; pointer-events:var(--hit-pe); user-select:none; -webkit-user-select:none;" style-focus="outline:2px solid var(--focus-ring); outline-offset:-10px;"></div>
 
   <!-- ===== HEADER ===== -->
-  <header sc-camel-on-pointer-move="{{ headerStop }}" sc-camel-on-pointer-enter="{{ headerEnter }}" style="position:fixed; top:0; left:0; right:0; z-index:40; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:clamp(14px,2.2vw,26px) clamp(14px,4vw,44px); pointer-events:auto;">
+  <header sc-camel-on-pointer-move="{{ headerStop }}" sc-camel-on-pointer-enter="{{ headerEnter }}" style="position:fixed; top:0; left:0; right:0; z-index:40; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:clamp(14px,2.2vw,26px) clamp(14px,4vw,44px); opacity:var(--stage-head-op); pointer-events:var(--stage-head-pe);">
     <sc-if value="{{ hero }}" hint-placeholder-val="{{ true }}"><a href="mailto:inquiry@dandylions.eu" style="pointer-events:auto; display:inline-flex; align-items:center; font-family:var(--font-sans); font-size:13px; letter-spacing:0.14em; text-transform:uppercase; white-space:nowrap; color:var(--charcoal-900); background:rgba(247,243,236,0.6); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); padding:9px 18px; border-radius:999px; border:1px solid rgba(43,43,43,0.14); cursor:pointer; transition:background .3s, transform .3s, border-color .3s, color .3s;" style-hover="background:var(--gold-700); color:var(--ivory-50); border-color:var(--gold-700); transform:translateY(-1px);" style-focus="outline:2px solid var(--gold-700); outline-offset:2px;">{{ t.begin }}</a></sc-if><sc-if value="{{ domIns }}"><button sc-camel-on-click="{{ back }}" aria-label="DandyLions" style="pointer-events:auto; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; padding:0; border:none; background:none; cursor:pointer; transition:transform .3s;" style-hover="transform:translateY(-1px);" style-focus="outline:2px solid var(--gold-700); outline-offset:3px; border-radius:999px;"><img src="assets/images/logo-insights.png" alt="" width="44" height="44" style="display:block; width:44px; height:44px;"></button></sc-if><sc-if value="{{ domCon }}"><button sc-camel-on-click="{{ back }}" aria-label="DandyLions" style="pointer-events:auto; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; padding:0; border:none; background:none; cursor:pointer; transition:transform .3s;" style-hover="transform:translateY(-1px);" style-focus="outline:2px solid var(--gold-700); outline-offset:3px; border-radius:999px;"><img src="assets/images/logo-consulting.png" alt="" width="44" height="44" style="display:block; width:44px; height:44px;"></button></sc-if><sc-if value="{{ expSwitch }}"><div role="group" aria-label="Switch between offers" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); pointer-events:auto; display:inline-flex; align-items:center; gap:2px; background:rgba(247,243,236,0.6); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(43,43,43,0.14); border-radius:999px; padding:3px;"><button sc-camel-on-click="{{ openIns }}" aria-pressed="{{ domIns }}" style="border:none; cursor:pointer; font-family:var(--font-sans); font-size:11px; letter-spacing:0.13em; text-transform:uppercase; padding:7px 15px; border-radius:999px; transition:background .3s, color .3s; background:var(--ins-seg-bg); color:var(--ins-seg-fg);" style-focus="outline:2px solid var(--gold-700); outline-offset:2px;">{{ t.ins_label }}</button><button sc-camel-on-click="{{ openCon }}" aria-pressed="{{ domCon }}" style="border:none; cursor:pointer; font-family:var(--font-sans); font-size:11px; letter-spacing:0.13em; text-transform:uppercase; padding:7px 15px; border-radius:999px; transition:background .3s, color .3s; background:var(--con-seg-bg); color:var(--con-seg-fg);" style-focus="outline:2px solid var(--gold-700); outline-offset:2px;">{{ t.con_label }}</button></div></sc-if>
     <div style="display:flex; align-items:center; gap:10px; pointer-events:auto;">
             <sc-if value="{{ showLangSwitch }}" hint-placeholder-val="{{ true }}"><div role="group" aria-label="Language" style="position:relative; display:flex; align-items:center; background:rgba(247,243,236,0.6); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(43,43,43,0.14); border-radius:999px; padding:3px;">
@@ -1546,9 +1546,9 @@ a:hover {
   </header>
 
   <!-- ===== ABOUT OVERLAY ===== -->
-  <div style="position:fixed; inset:0; z-index:60; opacity:var(--about-op); pointer-events:var(--about-pe); transform:translateY(var(--about-ty)); transition:opacity .5s cubic-bezier(0.33,0,0.15,1), transform .5s cubic-bezier(0.33,0,0.15,1); background:linear-gradient(158deg, var(--ivory-50) 0%, var(--ivory-100) 42%, var(--sage-200) 100%); overflow:auto;">
-    <button sc-camel-on-click="{{ closeAbout }}" aria-label="DandyLions" style="position:fixed; top:clamp(14px,2.2vw,26px); left:clamp(14px,4vw,44px); z-index:61; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; padding:0; border:none; background:none; cursor:pointer; opacity:var(--about-op); pointer-events:var(--about-pe); transition:transform .3s, opacity .3s;" style-hover="transform:translateY(-1px);" style-focus="outline:2px solid var(--gold-700); outline-offset:3px; border-radius:999px;"><img src="assets/images/logo-insights.png" alt="" width="44" height="44" style="display:block; width:44px; height:44px;"></button>
-    <a href="mailto:inquiry@dandylions.eu" style="position:fixed; top:clamp(14px,2.2vw,26px); right:clamp(14px,4vw,44px); z-index:61; display:inline-flex; align-items:center; font-family:var(--font-sans); font-size:13px; letter-spacing:0.14em; text-transform:uppercase; white-space:nowrap; color:var(--charcoal-900); background:rgba(247,243,236,0.6); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); padding:9px 18px; border-radius:999px; border:1px solid rgba(43,43,43,0.14); cursor:pointer; opacity:var(--about-op); pointer-events:var(--about-pe); transition:background .3s, transform .3s, border-color .3s, color .3s;" style-hover="background:var(--gold-700); color:var(--ivory-50); border-color:var(--gold-700); transform:translateY(-1px);" style-focus="outline:2px solid var(--gold-700); outline-offset:2px;">{{ t.begin }}</a>
+  <div style="position:var(--about-pos); inset:var(--about-inset); min-height:var(--about-minh); z-index:60; opacity:var(--about-op); pointer-events:var(--about-pe); transform:translateY(var(--about-ty)); transition:opacity .5s cubic-bezier(0.33,0,0.15,1), transform .5s cubic-bezier(0.33,0,0.15,1); background:linear-gradient(158deg, var(--ivory-50) 0%, var(--ivory-100) 42%, var(--sage-200) 100%); overflow:var(--about-sheet-ov);">
+    <button sc-camel-on-click="{{ closeAbout }}" aria-label="DandyLions" style="position:absolute; top:clamp(14px,2.2vw,26px); left:clamp(14px,4vw,44px); z-index:61; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; padding:0; border:none; background:none; cursor:pointer; opacity:var(--about-op); pointer-events:var(--about-pe); transition:transform .3s, opacity .3s;" style-hover="transform:translateY(-1px);" style-focus="outline:2px solid var(--gold-700); outline-offset:3px; border-radius:999px;"><img src="assets/images/logo-insights.png" alt="" width="44" height="44" style="display:block; width:44px; height:44px;"></button>
+    <a href="mailto:inquiry@dandylions.eu" style="position:absolute; top:clamp(14px,2.2vw,26px); right:clamp(14px,4vw,44px); z-index:61; display:inline-flex; align-items:center; font-family:var(--font-sans); font-size:13px; letter-spacing:0.14em; text-transform:uppercase; white-space:nowrap; color:var(--charcoal-900); background:rgba(247,243,236,0.6); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); padding:9px 18px; border-radius:999px; border:1px solid rgba(43,43,43,0.14); cursor:pointer; opacity:var(--about-op); pointer-events:var(--about-pe); transition:background .3s, transform .3s, border-color .3s, color .3s;" style-hover="background:var(--gold-700); color:var(--ivory-50); border-color:var(--gold-700); transform:translateY(-1px);" style-focus="outline:2px solid var(--gold-700); outline-offset:2px;">{{ t.begin }}</a>
     <div style="min-height:var(--about-h); overflow:var(--about-ovf); position:relative; max-width:1180px; margin:0 auto; padding:calc(clamp(84px,14vh,152px) + min(60px, max(0px, calc((1150px - 100vw) * 100)))) 56px clamp(100px,14vh,132px); display:flex; flex-direction:column; justify-content:var(--about-just); gap:clamp(30px,5.5vh,68px);">
 
       <div style="display:grid; grid-template-columns:var(--about-cols); gap:40px;">
@@ -1607,9 +1607,9 @@ a:hover {
     </div>
   </div>
   <!-- ===== ABOUT (facts, figures & references) OVERLAY ===== -->
-  <div style="position:fixed; inset:0; z-index:60; opacity:var(--voices-op); pointer-events:var(--voices-pe); transform:translateY(var(--voices-ty)); transition:opacity .5s cubic-bezier(0.33,0,0.15,1), transform .5s cubic-bezier(0.33,0,0.15,1); background:linear-gradient(158deg, var(--ivory-50) 0%, var(--ivory-100) 42%, var(--sage-200) 100%); overflow:auto;">
-    <button sc-camel-on-click="{{ closeVoices }}" aria-label="DandyLions" style="position:fixed; top:clamp(14px,2.2vw,26px); left:clamp(14px,4vw,44px); z-index:61; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; padding:0; border:none; background:none; cursor:pointer; opacity:var(--voices-op); pointer-events:var(--voices-pe); transition:transform .3s, opacity .3s;" style-hover="transform:translateY(-1px);" style-focus="outline:2px solid var(--gold-700); outline-offset:3px; border-radius:999px;"><img src="assets/images/logo-insights.png" alt="" width="44" height="44" style="display:block; width:44px; height:44px;"></button>
-    <a href="mailto:inquiry@dandylions.eu" style="position:fixed; top:clamp(14px,2.2vw,26px); right:clamp(14px,4vw,44px); z-index:61; display:inline-flex; align-items:center; font-family:var(--font-sans); font-size:13px; letter-spacing:0.14em; text-transform:uppercase; white-space:nowrap; color:var(--charcoal-900); background:rgba(247,243,236,0.6); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); padding:9px 18px; border-radius:999px; border:1px solid rgba(43,43,43,0.14); cursor:pointer; opacity:var(--voices-op); pointer-events:var(--voices-pe); transition:background .3s, transform .3s, border-color .3s, color .3s;" style-hover="background:var(--gold-700); color:var(--ivory-50); border-color:var(--gold-700); transform:translateY(-1px);" style-focus="outline:2px solid var(--gold-700); outline-offset:2px;">{{ t.begin }}</a>
+  <div style="position:var(--voices-pos); inset:var(--voices-inset); min-height:var(--voices-minh); z-index:60; opacity:var(--voices-op); pointer-events:var(--voices-pe); transform:translateY(var(--voices-ty)); transition:opacity .5s cubic-bezier(0.33,0,0.15,1), transform .5s cubic-bezier(0.33,0,0.15,1); background:linear-gradient(158deg, var(--ivory-50) 0%, var(--ivory-100) 42%, var(--sage-200) 100%); overflow:var(--voices-sheet-ov);">
+    <button sc-camel-on-click="{{ closeVoices }}" aria-label="DandyLions" style="position:absolute; top:clamp(14px,2.2vw,26px); left:clamp(14px,4vw,44px); z-index:61; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; padding:0; border:none; background:none; cursor:pointer; opacity:var(--voices-op); pointer-events:var(--voices-pe); transition:transform .3s, opacity .3s;" style-hover="transform:translateY(-1px);" style-focus="outline:2px solid var(--gold-700); outline-offset:3px; border-radius:999px;"><img src="assets/images/logo-insights.png" alt="" width="44" height="44" style="display:block; width:44px; height:44px;"></button>
+    <a href="mailto:inquiry@dandylions.eu" style="position:absolute; top:clamp(14px,2.2vw,26px); right:clamp(14px,4vw,44px); z-index:61; display:inline-flex; align-items:center; font-family:var(--font-sans); font-size:13px; letter-spacing:0.14em; text-transform:uppercase; white-space:nowrap; color:var(--charcoal-900); background:rgba(247,243,236,0.6); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); padding:9px 18px; border-radius:999px; border:1px solid rgba(43,43,43,0.14); cursor:pointer; opacity:var(--voices-op); pointer-events:var(--voices-pe); transition:background .3s, transform .3s, border-color .3s, color .3s;" style-hover="background:var(--gold-700); color:var(--ivory-50); border-color:var(--gold-700); transform:translateY(-1px);" style-focus="outline:2px solid var(--gold-700); outline-offset:2px;">{{ t.begin }}</a>
     <div style="min-height:var(--about-h); overflow:var(--about-ovf); position:relative; max-width:1180px; margin:0 auto; padding:calc(clamp(84px,14vh,152px) + min(60px, max(0px, calc((1150px - 100vw) * 100)))) clamp(22px,5vw,60px) clamp(100px,14vh,132px); display:flex; flex-direction:column; justify-content:var(--about-just); gap:clamp(28px,5vh,56px);">
 
       <!-- stat strip -->
@@ -1655,8 +1655,8 @@ a:hover {
   </div>
 
   <!-- ===== INSIGHTS SITE ===== -->
-  <div style="position:fixed; inset:0; z-index:70; background:var(--ivory-50); opacity:var(--insite-op); pointer-events:var(--insite-pe); transition:opacity .45s cubic-bezier(0.33,0,0.15,1); display:flex; flex-direction:column; overflow:auto;">
-    <header style="position:sticky; top:0; z-index:20; background:var(--ivory-50); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px 28px; padding:16px clamp(20px,4vw,48px); border-bottom:1px solid rgba(43,43,43,0.12);">
+  <div style="position:var(--insite-pos); inset:var(--insite-inset); min-height:var(--insite-minh); z-index:70; background:var(--ivory-50); opacity:var(--insite-op); pointer-events:var(--insite-pe); transition:opacity .45s cubic-bezier(0.33,0,0.15,1); display:flex; flex-direction:column; overflow:var(--insite-ov);">
+    <header style="position:relative; z-index:20; background:var(--ivory-50); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px 28px; padding:16px clamp(20px,4vw,48px); border-bottom:1px solid rgba(43,43,43,0.12);">
       <div style="display:flex; align-items:center; gap:14px;">
         <button sc-camel-on-click="{{ closeInsite }}" aria-label="DandyLions" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border:none; background:none; cursor:pointer; padding:0; transition:transform .3s, opacity .3s;" style-hover="transform:translateY(-1px); opacity:0.8;" style-focus="outline:2px solid var(--gold-700); outline-offset:3px; border-radius:999px;"><img src="assets/images/logo-insights.png" alt="" width="44" height="44" style="display:block; width:44px; height:44px;"></button>
         <sc-if value="{{ insNotHome }}"><button sc-camel-on-click="{{ goInsHome }}" style="display:inline-flex; align-items:center; gap:7px; font-family:var(--font-sans); font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--charcoal-900); background:rgba(43,43,43,0.04); border:1px solid rgba(43,43,43,0.18); border-radius:999px; padding:7px 15px; cursor:pointer; transition:background .3s, color .3s, border-color .3s;" style-hover="background:var(--gold-700); color:var(--ivory-50); border-color:var(--gold-700);" style-focus="outline:2px solid var(--gold-700); outline-offset:2px;"><svg width="15" height="15" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6 L9 12 L15 18"></path></svg>{{ t.back }}</button></sc-if>
@@ -1693,7 +1693,7 @@ a:hover {
           <div style="position:relative; width:100%; height:clamp(340px,62vh,600px); overflow:hidden; border-radius:16px; border:1px solid rgba(43,43,43,0.12); box-shadow:0 18px 44px rgba(43,43,43,0.12);"><image-slot id="hero-ins-home" shape="rect" fit="cover" placeholder="Drop a hero photo for Insights" aria-label="Fabio seated in a green armchair on stage, speaking to an audience" style="position:absolute; inset:0;"></image-slot></div>
         </header>
 
-        <div style="display:flex; flex-wrap:nowrap; align-items:stretch; gap:clamp(16px,2vw,26px); overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x proximity; scrollbar-width:thin; scrollbar-color:rgba(43,43,43,0.28) transparent; padding-bottom:14px; margin:0 calc(-1*clamp(20px,5vw,60px)); padding-left:clamp(20px,5vw,60px); padding-right:clamp(20px,5vw,60px);">
+        <div style="display:flex; flex-wrap:wrap; align-items:stretch; gap:clamp(16px,2vw,26px);">
           <sc-for list="{{ insTiers }}" as="tr" hint-placeholder-count="4">
           <article style="flex:0 0 clamp(268px,25vw,340px); scroll-snap-align:start; display:flex; flex-direction:column; background:var(--bg-surface); border:1px solid var(--ivory-200); border-radius:14px; box-shadow:0 12px 34px rgba(43,43,43,0.05); padding:clamp(24px,2.6vw,38px);">
             <p style="font-family:var(--font-sans); font-size:11px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-700); margin:0;">{{ tr.k }}</p>
@@ -1853,7 +1853,7 @@ a:hover {
           </div>
         </header>
         <p style="font-family:var(--font-serif); font-weight:300; font-size:clamp(18px,2vw,26px); line-height:1.45; color:var(--charcoal-700); margin:0; max-width:52ch; text-wrap:pretty;">{{ t.blogs_lede }}</p>
-        <div style="display:flex; flex-wrap:nowrap; align-items:flex-start; gap:clamp(22px,3vw,40px); overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x proximity; scrollbar-width:thin; scrollbar-color:rgba(43,43,43,0.28) transparent; padding-bottom:16px; margin:0 calc(-1*clamp(20px,5vw,60px)); padding-left:clamp(20px,5vw,60px); padding-right:clamp(20px,5vw,60px);">
+        <div style="display:flex; flex-wrap:wrap; align-items:flex-start; gap:clamp(22px,3vw,40px);">
           <sc-for list="{{ insBlogs }}" as="b" hint-placeholder-count="5">
             <article style="flex:0 0 clamp(248px,27vw,330px); scroll-snap-align:start; display:flex; flex-direction:column; gap:14px;">
               <div style="position:relative; width:100%; aspect-ratio:4/3; border-radius:12px; overflow:hidden; border:1px solid rgba(43,43,43,0.10); box-shadow:0 14px 34px rgba(43,43,43,0.10);">
@@ -1886,8 +1886,8 @@ a:hover {
   </div>
 
   <!-- ===== CONSULTING SITE ===== -->
-  <div style="position:fixed; inset:0; z-index:70; background:var(--sage-700); opacity:var(--consite-op); pointer-events:var(--consite-pe); transition:opacity .45s cubic-bezier(0.33,0,0.15,1); display:flex; flex-direction:column; overflow:auto;">
-    <header style="position:sticky; top:0; z-index:20; background:var(--sage-700); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px 28px; padding:16px clamp(20px,4vw,48px); border-bottom:1px solid rgba(247,243,236,0.22);">
+  <div style="position:var(--consite-pos); inset:var(--consite-inset); min-height:var(--consite-minh); z-index:70; background:var(--sage-700); opacity:var(--consite-op); pointer-events:var(--consite-pe); transition:opacity .45s cubic-bezier(0.33,0,0.15,1); display:flex; flex-direction:column; overflow:var(--consite-ov);">
+    <header style="position:relative; z-index:20; background:var(--sage-700); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px 28px; padding:16px clamp(20px,4vw,48px); border-bottom:1px solid rgba(247,243,236,0.22);">
       <div style="display:flex; align-items:center; gap:14px;">
         <button sc-camel-on-click="{{ closeConsite }}" aria-label="DandyLions" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border:none; background:none; cursor:pointer; padding:0; transition:transform .3s, opacity .3s;" style-hover="transform:translateY(-1px); opacity:0.8;" style-focus="outline:2px solid var(--ivory-50); outline-offset:3px; border-radius:999px;"><img src="assets/images/logo-consulting.png" alt="" width="44" height="44" style="display:block; width:44px; height:44px;"></button>
         <sc-if value="{{ conNotHome }}"><button sc-camel-on-click="{{ goConHome }}" style="display:inline-flex; align-items:center; gap:7px; font-family:var(--font-sans); font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ivory-50); background:rgba(247,243,236,0.10); border:1px solid rgba(247,243,236,0.45); border-radius:999px; padding:7px 15px; cursor:pointer; transition:background .3s, color .3s, border-color .3s;" style-hover="background:var(--ivory-50); color:var(--sage-700); border-color:var(--ivory-50);" style-focus="outline:2px solid var(--ivory-50); outline-offset:2px;"><svg width="15" height="15" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6 L9 12 L15 18"></path></svg>{{ t.back }}</button></sc-if>
@@ -2023,7 +2023,7 @@ a:hover {
             <p style="font-family:var(--font-serif); font-weight:300; font-size:clamp(18px,1.85vw,24px); line-height:1.42; color:var(--ivory-50); margin:0; text-wrap:pretty;">{{ t.ch_intro }}</p>
           </div>
 
-          <div style="display:flex; flex-wrap:nowrap; align-items:stretch; gap:clamp(16px,2vw,26px); overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x proximity; scrollbar-width:thin; scrollbar-color:rgba(247,243,236,0.34) transparent; padding-bottom:14px; margin:0 calc(-1*clamp(20px,5vw,60px)); padding-left:clamp(20px,5vw,60px); padding-right:clamp(20px,5vw,60px);">
+          <div style="display:flex; flex-wrap:wrap; align-items:stretch; gap:clamp(16px,2vw,26px);">
             <sc-for list="{{ conSteps }}" as="cs" hint-placeholder-count="3">
             <article style="flex:0 0 clamp(268px,25vw,340px); scroll-snap-align:start; display:flex; flex-direction:column; background:var(--ivory-50); border:1px solid rgba(43,43,43,0.10); border-radius:14px; box-shadow:0 14px 38px rgba(20,32,26,0.18); padding:clamp(24px,2.6vw,38px);">
               <p style="font-family:var(--font-sans); font-size:11px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-700); margin:0;">{{ cs.k }}</p>
@@ -2404,7 +2404,7 @@ a:hover {
   </div>
 
   <!-- overlay page switch: About | Corporate Identity -->
-  <div role="group" aria-label="Switch between pages" style="position:fixed; top:max(clamp(14px,2.2vw,26px), min(76px, calc((1150px - 100vw) * 100))); max-width:calc(100vw - 24px); white-space:nowrap; left:50%; transform:translateX(-50%); z-index:62; display:inline-flex; align-items:center; gap:2px; background:rgba(247,243,236,0.72); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(43,43,43,0.14); border-radius:999px; padding:3px; opacity:var(--ovl-op); pointer-events:var(--ovl-pe); transition:opacity .4s;">
+  <div role="group" aria-label="Switch between pages" style="position:absolute; top:max(clamp(14px,2.2vw,26px), min(76px, calc((1150px - 100vw) * 100))); max-width:calc(100vw - 24px); white-space:nowrap; left:50%; transform:translateX(-50%); z-index:62; display:inline-flex; align-items:center; gap:2px; background:rgba(247,243,236,0.72); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid rgba(43,43,43,0.14); border-radius:999px; padding:3px; opacity:var(--ovl-op); pointer-events:var(--ovl-pe); transition:opacity .4s;">
     <button sc-camel-on-click="{{ aboutIns }}" aria-pressed="{{ aboutInsOn }}" style="border:none; cursor:pointer; font-family:var(--font-sans); font-size:11px; letter-spacing:0.13em; text-transform:uppercase; padding:7px 15px; border-radius:999px; transition:background .3s, color .3s; background:var(--ovl-ins-bg); color:var(--ovl-ins-fg);" style-focus="outline:2px solid var(--gold-700); outline-offset:2px;">{{ t.nav_who_am }}</button>
     <button sc-camel-on-click="{{ openVoices }}" aria-pressed="{{ voicesOpen }}" style="border:none; cursor:pointer; font-family:var(--font-sans); font-size:11px; letter-spacing:0.13em; text-transform:uppercase; padding:7px 15px; border-radius:999px; transition:background .3s, color .3s; background:var(--ovl-fac-bg); color:var(--ovl-fac-fg);" style-focus="outline:2px solid var(--gold-700); outline-offset:2px;">{{ t.nav_facts }}</button>
     <button sc-camel-on-click="{{ openAbout }}" aria-pressed="{{ aboutOpen }}" style="border:none; cursor:pointer; font-family:var(--font-sans); font-size:11px; letter-spacing:0.13em; text-transform:uppercase; padding:7px 15px; border-radius:999px; transition:background .3s, color .3s; background:var(--ovl-corp-bg); color:var(--ovl-corp-fg);" style-focus="outline:2px solid var(--gold-700); outline-offset:2px;">{{ t.nav_identity }}</button>
@@ -2412,7 +2412,7 @@ a:hover {
   </div>
 
   <!-- faint paper grain over ivory + charcoal backgrounds -->
-  <div aria-hidden="true" style="position:fixed; inset:0; z-index:65; pointer-events:none; opacity:0.035; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' sc-camel-base-frequency='0.85' sc-camel-num-octaves='2' sc-camel-stitch-tiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23n)'/%3E%3C/svg%3E&quot;); background-size:150px 150px;"></div>
+  <div aria-hidden="true" style="position:absolute; inset:0; z-index:65; pointer-events:none; opacity:0.035; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' sc-camel-base-frequency='0.85' sc-camel-num-octaves='2' sc-camel-stitch-tiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23n)'/%3E%3C/svg%3E&quot;); background-size:150px 150px;"></div>
 
 </div>
 </x-dc>
@@ -3585,9 +3585,31 @@ class Component extends DCLogic {
     }
 
     const langIdx = s.lang === 'it' ? 1 : (s.lang === 'nl' ? 2 : 0);
+    const docScroll = !!(s.aboutOpen || s.voicesOpen || s.insiteOpen || s.consiteOpen);
+    const sheet = (open) => open
+      ? { pos: 'relative', inset: 'auto', ov: 'visible', minh: '100vh' }
+      : { pos: 'fixed', inset: '0', ov: 'hidden', minh: '0px' };
+    const aboutSheet = sheet(s.aboutOpen);
+    const voicesSheet = sheet(s.voicesOpen);
+    const insiteSheet = sheet(s.insiteOpen);
+    const consiteSheet = sheet(s.consiteOpen);
+    if (typeof document !== 'undefined') {
+      const html = document.documentElement;
+      html.style.height = docScroll ? 'auto' : '100%';
+      html.style.minHeight = docScroll ? '100%' : '';
+      html.style.overflow = docScroll ? 'auto' : 'hidden';
+      if (document.body) {
+        document.body.style.height = docScroll ? 'auto' : '100%';
+        document.body.style.minHeight = docScroll ? '100%' : '';
+        document.body.style.overflow = docScroll ? 'visible' : 'hidden';
+      }
+    }
 
     const rootStyle = {
-      position: 'fixed', inset: '0', overflow: 'hidden',
+      position: docScroll ? 'relative' : 'fixed',
+      inset: docScroll ? 'auto' : '0',
+      overflow: docScroll ? 'visible' : 'hidden',
+      ...(docScroll ? { width: '100%', minHeight: '100vh' } : {}),
       background: 'var(--ivory-50)', fontFamily: 'var(--font-sans)',
       '--divider': String(divider),
       '--vert': String(s.vert ? 1 : 0),
@@ -3621,14 +3643,28 @@ class Component extends DCLogic {
       '--ins-seg-fg': domIns ? 'var(--ivory-50)' : 'var(--charcoal-900)',
       '--con-seg-bg': domCon ? 'var(--gold-700)' : 'transparent',
       '--con-seg-fg': domCon ? 'var(--ivory-50)' : 'var(--charcoal-900)',
+      '--stage-head-op': docScroll ? '0' : '1',
+      '--stage-head-pe': docScroll ? 'none' : 'auto',
       '--about-op': s.aboutOpen ? '1' : '0',
       '--about-pe': s.aboutOpen ? 'auto' : 'none',
       '--about-ty': s.aboutOpen ? '0px' : '14px',
+      '--about-pos': aboutSheet.pos,
+      '--about-inset': aboutSheet.inset,
+      '--about-sheet-ov': aboutSheet.ov,
+      '--about-minh': aboutSheet.minh,
       '--voices-op': s.voicesOpen ? '1' : '0',
       '--voices-pe': s.voicesOpen ? 'auto' : 'none',
       '--voices-ty': s.voicesOpen ? '0px' : '14px',
+      '--voices-pos': voicesSheet.pos,
+      '--voices-inset': voicesSheet.inset,
+      '--voices-sheet-ov': voicesSheet.ov,
+      '--voices-minh': voicesSheet.minh,
       '--insite-op': s.insiteOpen ? '1' : '0',
       '--insite-pe': s.insiteOpen ? 'auto' : 'none',
+      '--insite-pos': insiteSheet.pos,
+      '--insite-inset': insiteSheet.inset,
+      '--insite-ov': insiteSheet.ov,
+      '--insite-minh': insiteSheet.minh,
       '--nv-home-bg': s.insitePage === 'home' ? 'var(--gold-700)' : 'transparent',
       '--nv-home-fg': s.insitePage === 'home' ? 'var(--ivory-50)' : 'var(--charcoal-900)',
       '--nv-svc-bg': (s.insitePage === 'keynotes' || s.insitePage === 'blogs') ? 'var(--gold-700)' : 'transparent',
@@ -3640,6 +3676,10 @@ class Component extends DCLogic {
       '--svc-ty': s.svcOpen ? '0px' : '-6px',
       '--consite-op': s.consiteOpen ? '1' : '0',
       '--consite-pe': s.consiteOpen ? 'auto' : 'none',
+      '--consite-pos': consiteSheet.pos,
+      '--consite-inset': consiteSheet.inset,
+      '--consite-ov': consiteSheet.ov,
+      '--consite-minh': consiteSheet.minh,
       '--cv-home-bg': s.consitePage === 'home' ? 'var(--ivory-50)' : 'transparent',
       '--cv-home-fg': s.consitePage === 'home' ? 'var(--sage-700)' : 'var(--ivory-50)',
       '--cv-svc-bg': ['coach','policy','kitchen'].indexOf(s.consitePage) >= 0 ? 'var(--ivory-50)' : 'transparent',
